@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--可以在html文件中直接书写JavaScript命令-->
+    <script type="text/javascript">
+        /**
+         * type="text/javascript"
+         * 通知浏览器在解析<script>标签时，需要使用【文本编辑器】和【javascript命令编辑器】
+         */
+        //声明一个处理请求的函数
+        function fun1() {
+            //读取one和two两个文本框中value属性值
+            var num1 = document.getElementById("one").value;
+            var num2 = document.getElementById("two").value;
+            //进行业务处理，加法运算
+            var res = parseInt(num1) + parseInt(num2);
+            //将运算结果写入到three文本框value
+            document.getElementById("three").value = res;
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <table border="2" >
+            <tr>
+                <td>数字1</td>
+                <td><input type="text" id="one"></td>
+            </tr>
+            <tr>
+                <td>数字2</td>
+                <td><input type="text" id="two"></td>
+            </tr>
+            <tr>
+                <td>运算结果</td>
+                <td><input type="text" id="three"></td>
+            </tr>
+            <tr align="center">
+                <!--onclick监听器，监听用户何时点击请求按钮-->
+                <td colspan="2"><input type="submit" value="加法运算" onclick="fun1()"></td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
