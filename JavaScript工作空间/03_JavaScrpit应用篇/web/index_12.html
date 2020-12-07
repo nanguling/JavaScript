@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //功能0：在浏览器将页面加载完毕后，自动将监听事件与标签进行绑定
+        function main() {
+            //为标题行checkbox绑定onclick事件并关联fun1
+            document.getElementById("one").onclick = fun1;
+            //为数据行中所有checkbox绑定onclick事件并关联fun2
+            var arr = document.getElementsByName("ck");
+            for (var i = 0;i < arr.length;i++) {
+                arr[i].onclick = fun2;
+            }
+            //为所有数据行绑定onmouseover监听事件，并关联fun3
+            var domArr = document.getElementsByTagName("tr");
+            for (var i = 1;i < domArr.length;i++) {
+                domArr[i].onmouseover = fun3;
+                //为所有数据行绑定onmouseout监听事件，并关联fun4
+                domArr[i].onmouseout = fun4;
+            }
+        }
+        //功能1：根据标题行上checkbox的选中状态控制数据行所有checkbox的选中状态
+        function fun1() {
+            //1.获得标题行checkbox的选中状态
+            var flag = document.getElementById("one").checked;
+            //2.获得每个数据行所关联的DOM对象
+            var arr = document.getElementsByName("ck");
+            //3.遍历数组得到每个数据行关联的DOM，并给他们赋值
+            for (var i = 0;i < arr.length;i++) {
+                arr[i].checked = flag;
+            }
+        }
+        //功能2：根据数据行中checkbox选中状态控制标题行上checkbox选中状态
+        function fun2() {
+            //1.获得数据行中所有checkbox的个数
+            var arr = document.getElementsByName("ck");
+            //2.获得数据行上被选中的checkbox的个数
+            var count = 0;
+            for (var i = 0;i < arr.length;i++) {
+                var dom = arr[i];
+                if (dom.checked == true) {
+                    count++;
+                }
+            }
+            //3.根据实际情况进行判断标题行上checkbox的状态
+            if (count != arr.length) {
+                document.getElementById("one").checked = false;
+            }else {
+                document.getElementById("one").checked = true;
+            }
+        }
+        //功能3：将鼠标锁悬停的数据行背景颜色设置为黄色，字体颜色设置为红色
+        function fun3() {
+            this.style.backgroundColor = "red";
+            this.style.color = "yellow";
+            //this指向当前鼠标悬停的tr标签的DOM对象
+        }
+        //功能4：将鼠标移开的数据行背景颜色设置为白色，将字体颜色设置为黑色
+        function fun4() {
+            this.style.backgroundColor = "white";
+            this.style.color = "black";
+            //this指向当前鼠标移开的tr标签的DOM对象
+        }
+    </script>
+</head>
+<body onload="main()">
+<table border="2" align="center">
+    <tr>
+        <td>
+            <input type="checkbox" id="one">全选/全不选
+        </td>
+        <td>
+            职员姓名
+        </td>
+        <td>
+            职员职位
+        </td>
+        <td>
+            职员工资
+        </td>
+    </tr>
+
+    <!--this指向当前tr标签关联的DOM对象-->
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            mike
+        </td>
+        <td>
+            初级程序员
+        </td>
+        <td>
+            10000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            tom
+        </td>
+        <td>
+            高级程序员
+        </td>
+        <td>
+            40000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            king
+        </td>
+        <td>
+            架构师
+        </td>
+        <td>
+            50000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            jones
+        </td>
+        <td>
+            产品经理
+        </td>
+        <td>
+            15000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            pick
+        </td>
+        <td>
+            人事经理
+        </td>
+        <td>
+            7000
+        </td>
+    </tr>
+</table>
+</body>
+</html>

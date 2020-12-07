@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        /**
+         * 1.浏览器自上而下解析网页标签
+         * 2.在执行 document.getElementById("one");时，浏览器还没有机会加载文本框
+         *      因此在DOM树上无法得到DOM对象，只能返回null
+         * @type {HTMLElement}
+         */
+        // var dom = document.getElementById("one");
+        // var str = dom.value;//TypeError :dom is null
+        // window.alert(str)
+        function fun1() {
+            var dom = document.getElementById("one");
+            var str = dom.value;//TypeError :dom is null
+            window.alert(str)
+        }
+    </script>
+</head>
+<body onload="fun1()">
+    <input type="text" id="one" value="？？？">
+    <script type="text/javascript">
+        //这种方案虽然可以确保我们能够定位到需要使用的DOM对象，但是影响代码可读性，不宜与维护
+        // var dom = document.getElementById("one");
+        // var str = dom.value;//TypeError :dom is null
+        // window.alert(str)
+    </script>
+</body>
+</html>

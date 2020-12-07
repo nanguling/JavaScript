@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fun1(dom) {
+            this.style.backgroundColor = "blue";
+        }
+        function fun2(dom) {
+            this.style.backgroundColor = "white";
+        }
+        //声明一个函数，这个函数在浏览器加载页面完毕后被自动调用，执行时为所有数据行绑定onmouseover与onmouseout监听事件
+        function main() {
+            //1.定位所有tr标签所关联的DOM对象
+            var arr = document.getElementsByTagName("tr");
+            //2.通过循环遍历依次通过DOM对象将onmouseover与onmouseout绑定到标签上
+            for (var i = 1;i < arr.length;i++) {
+                var dom = arr[i];//得到数据行上某个tr标签对应的DOM对象
+                dom.onmouseover = fun1;
+                dom.onmouseout = fun2;
+            }
+        }
+    </script>
+</head>
+<body onload="main()">
+<table border="2" align="center">
+    <tr>
+        <td>
+            <input type="checkbox" id="one">全选/全不选
+        </td>
+        <td>
+            职员姓名
+        </td>
+        <td>
+            职员职位
+        </td>
+        <td>
+            职员工资
+        </td>
+    </tr>
+
+    <!--this指向当前tr标签关联的DOM对象-->
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            mike
+        </td>
+        <td>
+            初级程序员
+        </td>
+        <td>
+            10000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            tom
+        </td>
+        <td>
+            高级程序员
+        </td>
+        <td>
+            40000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            king
+        </td>
+        <td>
+            架构师
+        </td>
+        <td>
+            50000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            jones
+        </td>
+        <td>
+            产品经理
+        </td>
+        <td>
+            15000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>
+            pick
+        </td>
+        <td>
+            人事经理
+        </td>
+        <td>
+            7000
+        </td>
+    </tr>
+</table>
+</body>
+</html>

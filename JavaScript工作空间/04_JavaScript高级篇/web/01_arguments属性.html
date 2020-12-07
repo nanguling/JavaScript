@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function fun1(p1) {
+            window.alert("fun1 is run")
+        }
+        //三处调用，哪几处可以调用成功：都可以正常调用fun1
+        // fun1();
+        // fun1(10);
+        // fun1(10,20);
+        //问题：fun1()，fun1(10,20)调用时传递的实参与fun1声明时指定的形参个数并不匹配，为什么还能正常调用？
+
+        //声明一个函数，证明arguments存在
+        // function fun2() {
+        //     window.alert("fun2在运行时所得到的实参个数："+arguments.length);
+        //     for (var i = 0;i < arguments.length;i++) {
+        //         window.alert("第"+(i+1)+"个实参的值为："+arguments[i]+" 数据类型为："+typeof arguments[i]);
+        //     }
+        // }
+
+        //测试
+        //fun2(10,"abc",new Date());
+
+        //JavaScript中函数重载：当一个函数在接收到不同参数时，能提供不同的功能
+        //当fun3接收到一个String类型实参时，体现 hello;接收到两个number类型的实参时，体现 加法运算
+        function fun3() {
+            if (arguments.length == 1 && typeof arguments[0] == 'string') {
+                window.alert("hello"+arguments[0]);
+            }else if (arguments.length == 2 && typeof arguments[0] == 'number' && typeof arguments[1] == 'number') {
+                var res = arguments[0]+arguments[1];
+                window.alert("两个number类型参数的和为："+res);
+            }
+            //JavaScript中反射相当于java中获得对象修饰类型的名字
+            //typeof obj =obj.getClass().getName();
+        }
+
+        //测试
+        //fun3("mike")
+        fun3(15,15)
+        // fun3("mike",15)
+    </script>
+</body>
+</html>

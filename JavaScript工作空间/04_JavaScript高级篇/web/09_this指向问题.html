@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //全局变量
+        var name = "tom";
+        //全局变量  window.Student = function(){};
+        function Student() {
+            this.id = 100;
+            this.name = "mike";
+        }
+
+        // Student();//普通函数身份,window.Student()  this----->window  this.name = "mike";
+        // window.alert(window.name);
+
+        var obj = new Student();
+        window.alert(window.name);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

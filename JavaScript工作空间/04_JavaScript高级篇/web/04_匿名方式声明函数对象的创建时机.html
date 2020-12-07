@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //在上方调用函数对象
+        fun1();//调用失败:Uncaught TypeError: fun1 is not a function
+        //匿名方式声明函数对象
+        var fun1 = function () {
+            window.alert("fun1 is run...")//这是一个命令行，浏览器第一次加载时只会创建以标准形式声明的函数对象，因此匿名方式声明的函数对象无法创建
+        }
+        //在下方调用函数对象
+        //fun1();//调用成功
+    </script>
+</head>
+<body>
+
+</body>
+</html>

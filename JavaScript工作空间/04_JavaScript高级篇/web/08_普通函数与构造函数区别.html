@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fun1() {
+            return "abc";
+        }
+
+        //将fun1作为普通函数进行调用
+        // var n1 = fun1();
+        // window.alert("n1的类型： "+typeof n1+" 值为： "+n1)
+
+        //将fun1作为构造函数进行调用
+        var n = new fun1();//函数作为构造函数调用时，内部return直接失效
+        window.alert("n1的类型： "+typeof n+" 值为： "+n)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        var obj = new Object();//JavaScript中内置构造函数
+        // //新增属性
+        // obj.id = 10;
+        // obj.name = "mike";
+        // //新增函数
+        // obj.fun1 = function (p) {
+        //     window.alert(obj.name+"向"+p+"问好")
+        // }
+        // window.alert(obj.id);
+        // window.alert(obj.name)
+        // obj.fun1("tom")
+
+        //新增属性
+        //obj["name"] = "mike";
+        //window.alert(obj.name);
+
+        var s = "sname";
+        obj[s] = "mike";
+        window.alert(obj.sname);
+
+        //移除sname属性
+        delete obj.sname;
+        window.alert(obj.sname);//undefind
+    </script>
+</head>
+<body>
+
+</body>
+</html>

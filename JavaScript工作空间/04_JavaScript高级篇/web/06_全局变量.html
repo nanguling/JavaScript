@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //全局变量,相当于window.s = "mike";
+        var s = "mike";
+        var a = 132;
+
+        function fun1() {
+            window.alert("hello" + s)
+        }
+
+        function fun2() {
+            window.alert("bye" + s)
+        }
+
+        // fun1();
+        // fun2();
+        // window.alert("window.s = " + s);
+        // window.alert("window.a = " + a);
+        function fun3() {
+            var sex = "man";//局部变量
+            home = "成都";//全局变量，【当这行命令执行时】相当于window.home = "成都";
+        }
+        window.alert("window.home = " + window.home);//undefind
+        fun3();
+        window.alert("window.home = " + window.home);//成都
+    </script>
+</head>
+<body>
+
+</body>
+</html>

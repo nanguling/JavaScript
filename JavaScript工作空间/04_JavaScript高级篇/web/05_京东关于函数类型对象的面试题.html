@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        fun1();//此处输出为？？？       2
+        function fun1() {
+            window.alert(1);
+        }
+
+        fun1();//此处输出为？？？       2
+        function fun1() {
+            window.alert(2);
+        }
+        //浏览器第一次加载到这里的时候，fun1指向的是第二个函数对象，因此浏览器第二次自上而下运行命令行时前两个结果都是2
+        var fun1 = function () {
+            window.alert(3)
+        }
+        //浏览器第二次自上而下运行到这里的时候，fun1指向的时第三个由匿名方式声明的函数对象
+        fun1();//此处输出为？？？       3   //此时输出结果就是3
+    </script>
+</head>
+<body>
+
+</body>
+</html>
